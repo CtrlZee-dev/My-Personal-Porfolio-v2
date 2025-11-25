@@ -24,12 +24,12 @@ export function User_Bio_Info() {
           />
           <img
             src={linkedIn}
-            alt="github"
+            alt="linkeIn"
             className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
           />
           <img
             src={email}
-            alt="github"
+            alt="email adress"
             className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
           />
         </div>
