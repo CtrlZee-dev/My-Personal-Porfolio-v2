@@ -5,8 +5,8 @@ import email from "../assets/email.png";
 export function User_Bio_Info() {
   return (
     <>
-      <div className="flex  flex-col gap-4 sm:gap-6 p-4">
-        <div className="text-left text-sm md:text-base mb-2 leading-relaxed">
+      <div className="flex  flex-col gap-4 sm:gap-6 p-4 ">
+        <div className="text-left text-sm mb-2 md:text-base lg:text-lg xl:text-xl leading-relaxed">
           <p>🚀 Full-stack dev (React • C# • .NET • Python)</p>
           <p>☁️ Salesforce Admin + Agentforce Certified</p>
           <p>🛠️ Writes code. Builds systems.</p>
@@ -16,7 +16,7 @@ export function User_Bio_Info() {
           <p>🐳 Pretends Docker isn’t confusing sometimes.</p>
           <p>⚡ Automating the boring stuff so humans don’t suffer.</p>
         </div>
-        <div className="flex items-center md:items-center  gap-6 sm:gap-8">
+        <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
           <img
             src={github}
             alt="github"
