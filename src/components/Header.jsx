@@ -1,12 +1,12 @@
-import logo from "../assets/logo.gif";
-import menu from "../assets/menu.png";
+import LogoIcon_IMG from "../assets/logo.gif";
+import MenuIcon_IMG from "../assets/menu.png";
 
 export function Header() {
   return (
     <div className="flex w-full items-center justify-between p-4">
       <div className="flex items-center gap-3">
         <img
-          src={logo}
+          src={LogoIcon_IMG}
           alt="logo"
           className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
         />
@@ -17,7 +17,7 @@ export function Header() {
       </div>
 
       <img
-        src={menu}
+        src={MenuIcon_IMG}
         alt="menu"
         className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
       />

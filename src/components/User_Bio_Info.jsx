@@ -1,6 +1,6 @@
-import github from "../assets/github.png";
-import linkedIn from "../assets/linkedIn.png";
-import email from "../assets/email.png";
+import GithubBtn_IMG from "../assets/github.png";
+import LinkedInBtn_IMG from "../assets/linkedIn.png";
+import EmailBtn_IMG from "../assets/email.png";
 
 export function User_Bio_Info() {
   return (
@@ -24,7 +24,7 @@ export function User_Bio_Info() {
             rel="noopener noreferrer"
           >
             <img
-              src={github}
+              src={GithubBtn_IMG}
               alt="github"
               className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
             />
@@ -37,7 +37,7 @@ export function User_Bio_Info() {
             rel="noopener noreferrer"
           >
             <img
-              src={linkedIn}
+              src={LinkedInBtn_IMG}
               alt="linkeIn"
               className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
             />
@@ -50,7 +50,7 @@ export function User_Bio_Info() {
             rel="noopener noreferrer"
           >
             <img
-              src={email}
+              src={EmailBtn_IMG}
               alt="email adress"
               className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
             />

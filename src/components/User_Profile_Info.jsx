@@ -1,11 +1,11 @@
-import ProfileImg from "../assets/me.png";
+import Profile_IMG from "../assets/me.png";
 
 export function User_Profile_Info() {
   return (
     <div className="flex items-center gap-4 sm:gap-6 p-4">
       <div className="rounded-full bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]">
         <img
-          src={ProfileImg}
+          src={Profile_IMG}
           alt="profile picture"
           className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full object-cover  border-1 border-[#4c2773] p-1"
         />
