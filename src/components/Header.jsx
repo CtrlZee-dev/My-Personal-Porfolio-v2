@@ -15,12 +15,6 @@ export function Header() {
           Welcome to My Digital Space 🌿
         </h2>
       </div>
-
-      <img
-        src={MenuIcon_IMG}
-        alt="menu"
-        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
-      />
     </div>
   );
 }

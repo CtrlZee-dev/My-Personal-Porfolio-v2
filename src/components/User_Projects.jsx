@@ -13,6 +13,8 @@ export const projects = [
     stack: ["PHP", "JavaScript", "Bootstrap", "MySQL"],
     description:
       "An e-commerce platform promoting social good by donating a product for every purchase made.",
+    githubLink: "https://github.com/CtrlZee-dev/BuyOneGiveOne-BOGO",
+    livePreviewLink: "https://buyonegiveone.mypressonline.com/",
   },
   {
     img: Project2_IMG,
@@ -20,12 +22,16 @@ export const projects = [
     stack: ["JavaScript", "Node.JS", "CSS"],
     description:
       "A classic word-guessing game where players try to guess a hidden word within limited attempts.",
+    githubLink: "https://github.com/CtrlZee-dev/Hangman",
+    livePreviewLink: "https://ctrlzee-dev.github.io/Hangman/",
   },
   {
     img: Project3_IMG,
     name: "PennyWise Expense Tracker",
     stack: ["C#", "JavaScript", "MySQL", "ASP.NET"],
     description: "Helps users track expenses and manage budgets effectively.",
+    githubLink: "https://github.com/CtrlZee-dev/C-Project-ITEHA3",
+    livePreviewLink: "https://ctrlzee-dev.github.io/my-personal-portfolio/",
   },
   {
     img: Project4_IMG,
@@ -33,6 +39,8 @@ export const projects = [
     stack: ["React", "JavaScript", "TailwindCSS", "Vite"],
     description:
       "Personal portfolio to showcase projects, skills, and experience.",
+    githubLink: "https://github.com/CtrlZee-dev/My-Personal-Porfolio-v2",
+    livePreviewLink: "https://ctrlzee-dev.github.io/my-personal-portfolio/",
   },
   {
     img: Project5_IMG,
@@ -40,6 +48,8 @@ export const projects = [
     stack: ["JavaScript", "Node.JS", "API"],
     description:
       "Provides movie details, ratings, and reviews using a third-party API.",
+    githubLink: "https://github.com/CtrlZee-dev/Movie-Guide",
+    livePreviewLink: "ctrlzee-dev.github.io/Movie-Guide/",
   },
   {
     img: Project6_IMG,
@@ -47,6 +57,8 @@ export const projects = [
     stack: ["React", "JavaScript", "TailwindCSS", "Vite", "API"],
     description:
       "Allows users to browse, search, and save favorite recipes with tips and meal planning.",
+    githubLink: "https://github.com/CtrlZee-dev/My-Personal-Porfolio-v2",
+    livePreviewLink: "https://ctrlzee-dev.github.io/my-personal-portfolio/",
   },
 ];
 

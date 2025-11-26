@@ -73,7 +73,23 @@ export function View_Project() {
 
       {/* Description & Tech Stack */}
       <div className="px-3 pb-4">
-        <p className="font-semibold text-base">{project.name}</p>
+        <a
+          className=""
+          href={project.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p className="font-semibold text-base flex items-center  gap-2 hover:underline">
+            {project.name}
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/material-outlined/24/github.png"
+              alt="github link to project"
+            />
+          </p>
+        </a>
+
         <p className="text-gray-700 mt-1">{project.description}</p>
 
         <div className="flex gap-2 mt-2 flex-wrap">
@@ -85,6 +101,19 @@ export function View_Project() {
               {tech}
             </span>
           ))}
+          <a
+            className="ml-auto"
+            href={project.livePreviewLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/small/16/external-link.png"
+              alt="external-link"
+            />
+          </a>
         </div>
       </div>
     </div>
