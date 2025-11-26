@@ -66,11 +66,8 @@ export function User_Projects() {
 
             {/* Hover Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-2">
-              <p className="text-white text-sm font-semibold mb-1 truncate">
+              <p className="text-white text-left text-sm font-semibold mb-1 truncate">
                 {project.name}
-              </p>
-              <p className="text-gray-200 text-xs mb-1 line-clamp-2">
-                {project.description}
               </p>
               <div className="flex gap-2 flex-wrap">
                 {project.stack.map((tech, i) => (
