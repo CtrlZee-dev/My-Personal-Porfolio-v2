@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Project1_IMG from "../assets/bogo1.png";
 import Project2_IMG from "../assets/hangman.png";
 import Project3_IMG from "../assets/pennywise.png";
@@ -56,31 +57,34 @@ export function User_Projects() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {projects.map((project, index) => (
-          <div className="relative group rounded-lg overflow-hidden cursor-pointer border border-gray-300 hover:border-gray-400 transition-colors">
-            {/* Project Image */}
-            <img
-              src={project.img}
-              alt={project.name}
-              className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+          <Link to={`/project/${index}`} key={index}>
+            <div className="relative group rounded-lg overflow-hidden cursor-pointer border border-gray-300 hover:border-gray-400 transition-colors">
+              {/* Project Image */}
+              <img
+                src={project.img}
+                alt={project.name}
+                className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
 
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-2">
-              <p className="text-white text-left text-sm font-semibold mb-1 truncate">
-                {project.name}
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {project.stack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-xs text-gray-200 bg-black/40 px-2 py-[2px] rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-2">
+                <p className="text-white text-left text-sm font-semibold mb-1 truncate">
+                  {project.name}
+                </p>
+
+                <div className="flex gap-2 flex-wrap">
+                  {project.stack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs text-gray-200 bg-black/40 px-2 py-[2px] rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
