@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { projects } from "./User_Projects"; // make sure you export `projects` array
+import { projects } from "./User_Projects";
 import Profile_IMG from "../assets/me.png";
 import BackBtn_IMG from "../assets/back.png";
 import MenuIcon_IMG from "../assets/menu.png";
@@ -10,11 +11,34 @@ import ShareBtn_IMG from "../assets/share.png";
 export function View_Project() {
   const { id } = useParams();
   const project = projects[id];
+  const [openMenu, setOpenMenu] = useState(false);
+  const [toast, setToast] = useState("");
 
   if (!project) return <p className="p-4 text-center">Project not found</p>;
 
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(""), 2000);
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    showToast("Project link copied!");
+    setOpenMenu(false);
+  };
+
+  const handleDownloadCV = () => {
+    const cvLink = "../assets/CV-ZIZIPHO KAKAZA.pdf";
+    const a = document.createElement("a");
+    a.href = cvLink;
+    a.download = "Zizipho_Kakaza_CV.pdf";
+    a.click();
+    showToast("CV downloaded!");
+    setOpenMenu(false);
+  };
+
   return (
-    <div className="flex flex-col p-4 w-full border rounded-xl bg-white max-w-4xl mx-auto">
+    <div className="flex flex-col min-h-screen p-4 w-full max-w-4xl mx-auto overflow-auto">
       {/* Navigation Header */}
       <div className="relative flex items-center p-2">
         <img
@@ -30,30 +54,55 @@ export function View_Project() {
 
       <hr />
 
-      {/* Profile Header */}
-      <div className="flex items-center p-4 w-full">
-        <div className="flex items-center gap-3 rounded-">
+      {/* Profile Header with Dropdown */}
+      <div className="flex items-center p-4 w-full relative">
+        <div className="flex items-center gap-3">
           <img
             src={Profile_IMG}
             alt="Profile"
-            className="w-12 h-12 rounded-full border  p-1 object-cover full bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]"
+            className="w-12 h-12 rounded-full border p-1 object-cover bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]"
           />
-          <h2 className="font-bold"> I_am_Zizipho_Kakaza🌻💜</h2>
+          <h2 className="font-bold">I_am_Zizipho_Kakaza🌻💜</h2>
         </div>
-        <img
-          src={MenuIcon_IMG}
-          alt="Menu"
-          className="w-10 h-10 ml-auto cursor-pointer"
-        />
+
+        {/* Menu Icon */}
+        <div className="ml-auto relative">
+          <img
+            src={MenuIcon_IMG}
+            alt="Menu"
+            className="w-10 h-10 cursor-pointer"
+            onClick={() => setOpenMenu((prev) => !prev)}
+          />
+
+          {/* Dropdown Menu */}
+          {openMenu && (
+            <div className="absolute right-0 top-12 w-44 bg-white rounded-xl shadow-lg border p-2 animate-fadeIn z-50">
+              <button
+                onClick={handleCopyLink}
+                className="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 text-sm"
+              >
+                Copy Project Link
+              </button>
+              <button
+                onClick={handleDownloadCV}
+                className="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 text-sm"
+              >
+                Download CV
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Main Project Image */}
-      <div className="relative group">
-        <img
-          src={project.img}
-          alt={project.name}
-          className="w-full object-cover rounded-md"
-        />
+      <div className="relative group w-full">
+        <div className="w-full h-64 md:h-96 overflow-hidden rounded-md">
+          <img
+            src={project.img}
+            alt={project.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
 
       {/* Action Buttons */}
@@ -72,26 +121,21 @@ export function View_Project() {
       </div>
 
       {/* Description & Tech Stack */}
-      <div className="px-3 pb-4">
-        <a
-          className=""
-          href={project.githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p className="font-semibold text-base flex items-center  gap-2 hover:underline">
+      <div className="px-3 pb-24">
+        {" "}
+        {/* Add bottom padding so content isn't hidden behind nav */}
+        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+          <p className="font-semibold text-base flex items-center gap-2 hover:underline">
             {project.name}
             <img
               width="20"
               height="20"
               src="https://img.icons8.com/material-outlined/24/github.png"
-              alt="github link to project"
+              alt="github link"
             />
           </p>
         </a>
-
         <p className="text-gray-700 mt-1">{project.description}</p>
-
         <div className="flex gap-2 mt-2 flex-wrap">
           {project.stack.map((tech, i) => (
             <span
@@ -116,6 +160,13 @@ export function View_Project() {
           </a>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      {toast && (
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-[#e2c0e2] border border-gray-200 text-gray-800 px-6 py-3 rounded-xl shadow-md opacity-95 animate-slideDown z-50 flex items-center gap-2">
+          <span className="font-bold">{toast}</span>
+        </div>
+      )}
     </div>
   );
 }
