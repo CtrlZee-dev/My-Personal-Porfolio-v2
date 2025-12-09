@@ -17,7 +17,7 @@ export function Header() {
   };
 
   const handleDownloadCV = () => {
-    const cvLink = "../assets/CV-ZIZIPHO KAKAZA.pdf";
+    const cvLink = "../assets/CV-ZIZIPHO KAKAZA-v2.pdf";
     const a = document.createElement("a");
     a.href = cvLink;
     a.download = "Zizipho_Kakaza_CV.pdf";
