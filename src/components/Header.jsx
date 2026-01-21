@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LogoIcon_IMG from "../assets/logo.gif";
 import MenuIcon_IMG from "../assets/menu.png";
+import CV_PDF from "../assets/CV-ZIZIPHO-KAKAZA-v1.pdf";
 
 export function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -8,23 +9,22 @@ export function Header() {
 
   const showToast = (message) => {
     setToast(message);
-    setTimeout(() => setToast(""), 2000); // disappears after 2s
+    setTimeout(() => setToast(""), 2000); // disappears after 2s4
   };
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     showToast(" Profile link copied!");
   };
-
   const handleDownloadCV = () => {
-    const cvLink = "../assets/CV-ZIZIPHO KAKAZA-v2.pdf";
     const a = document.createElement("a");
-    a.href = cvLink;
-    a.download = "Zizipho_Kakaza_CV.pdf";
+    a.href = CV_PDF;
+    a.download = "ZIZIPHO-KAKAZA-CV.pdf";
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     showToast("CV downloaded!");
   };
-
   return (
     <div className="relative flex w-full items-center justify-between p-4">
       {/* LEFT SECTION */}

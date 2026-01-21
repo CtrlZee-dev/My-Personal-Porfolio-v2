@@ -7,6 +7,7 @@ import MenuIcon_IMG from "../assets/menu.png";
 import HeartBtn_IMG from "../assets/heart2.png";
 import CommentBtn_IMG from "../assets/comment.png";
 import ShareBtn_IMG from "../assets/share.png";
+import CV_PDF from "../assets/CV-ZIZIPHO-KAKAZA-v1.pdf";
 
 export function View_Project() {
   const { id } = useParams();
@@ -28,13 +29,13 @@ export function View_Project() {
   };
 
   const handleDownloadCV = () => {
-    const cvLink = "/CV-Zizipho-Kakaza-v2.pdf"; // note leading /
     const a = document.createElement("a");
-    a.href = cvLink;
-    a.download = "Zizipho_Kakaza_CV.pdf";
+    a.href = CV_PDF;
+    a.download = "ZIZIPHO-KAKAZA-CV.pdf";
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     showToast("CV downloaded!");
-    setOpenMenu(false);
   };
 
   return (
